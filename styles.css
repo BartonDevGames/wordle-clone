@@ -29,12 +29,12 @@ body {
     align-items: center;
     min-height: 100vh;
     justify-content: flex-start;
-    padding: 2vw 0;
+    padding: 20px 0;
 }
 
 #game {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,16 +44,16 @@ body {
 header {
     width: 100%;
     border-bottom: 1px solid rgb(58,58,60);
-    padding-bottom: 0.5vw;
-    margin-bottom: 2vw;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .title {
     color: gainsboro;
-    font-size: 8vw;
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 2vw;
+    margin-bottom: 10px;
 }
 
 /* BOARD */
@@ -61,24 +61,22 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2vw;
+    margin-bottom: 10px;
 }
 
 #board {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 2vw;
-    padding: 1vw;
+    grid-gap: 6px;
+    padding: 5px;
     width: 100%;
 }
 
 .square {
-    border: 0.4vw solid rgb(58, 58, 60);
-    width: 18vw;
-    height: 18vw;
-    max-width: 70px;
-    max-height: 70px;
-    font-size: 6vw;
+    border: 2px solid rgb(58, 58, 60);
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
     font-weight: bold;
     color: gainsboro;
     text-transform: uppercase;
@@ -90,31 +88,29 @@ header {
 /* KEYBOARD */
 #keyboard-container {
     width: 100%;
-    max-width: 600px;
-    margin-top: 2vw;
+    max-width: 500px;
+    margin-top: 5px;
 }
 
 .keyboard-row {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 1vw;
-    gap: 1vw;
+    margin-bottom: 6px;
+    gap: 5px;
     touch-action: manipulation;
 }
 
 .keyboard-row button {
     font-family: inherit;
     font-weight: bold;
-    font-size: 3vw;
-    width: 12vw;
-    height: 14vw;
-    max-width: 50px;
-    max-height: 60px;
+    font-size: 1.1rem;
+    width: 40px;
+    height: 50px;
     background-color: rgb(129, 131, 132);
     color: rgb(215, 218, 220);
     border: 0;
-    border-radius: 0.5vw;
+    border-radius: 5px;
     cursor: pointer;
     text-transform: uppercase;
     user-select: none;
@@ -122,18 +118,17 @@ header {
 }
 
 .keyboard-row button.wide-button {
-    width: 18vw;
-    max-width: 70px;
+    width: 60px;
 }
 
 /* Delete + Enter */
 button[data-key="del"] {
     line-height: 0;
-    font-size: 4vw;
+    font-size: 1.3rem;
 }
 
 button[data-key="enter"] {
-    font-size: 3vw;
+    font-size: 0.85rem;
 }
 
 /* REMOVE FOCUS RING COMPLETELY */
@@ -159,7 +154,7 @@ button::-moz-focus-inner {
 /* NOTIFICATIONS */
 #notification-container {
     position: absolute;
-    top: 5vw;
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
@@ -167,32 +162,32 @@ button::-moz-focus-inner {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-width: 40vw;
+    min-width: 200px;
 }
 
 .notification {
     background-color: rgb(100, 100, 100);
     color: gainsboro;
     font-weight: bold;
-    font-size: 3vw;
-    padding: 2vw 4vw;
-    border-radius: 2vw;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 8px;
     opacity: 0;
     animation: slideInOut 2.5s forwards;
     text-align: center;
 }
 
 @keyframes slideInOut {
-    0% { opacity: 0; transform: translateY(-2vw); }
+    0% { opacity: 0; transform: translateY(-20px); }
     10% { opacity: 1; transform: translateY(0); }
     90% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(-2vw); }
+    100% { opacity: 0; transform: translateY(-20px); }
 }
 
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-2vw); }
-    20%, 40%, 60%, 80% { transform: translateX(2vw); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
 
 .shake {
