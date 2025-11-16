@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let isGameOver = false;
 
   randomWord = possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)];
-  const word = 'elias';
+  const word = randomWord;
     
   let guessedWordCount = 0;
 
@@ -9070,8 +9070,6 @@ roble
 rumba
 biffy
 pupal
-elias
-mateo
 `
   .trim()
   .split("\n");
