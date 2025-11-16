@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let isAnimating = false;
   let isGameOver = false;
 
-  const word =
-    possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)];
+  randomWord = possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)];
+  const word = 'elias';
+    
   let guessedWordCount = 0;
 
   const keyButtons = {};
