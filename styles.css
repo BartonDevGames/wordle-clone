@@ -5,12 +5,11 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-  overflow-x: hidden;
+html,
+body {
   background-color: black;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-               'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -28,6 +27,8 @@ body {
   justify-content: center;
   padding: 20px 0;
   box-sizing: border-box;
+  transform: scale(0.9);
+  transform-origin: top center;
 }
 
 /* GAME BOARD */
@@ -42,7 +43,7 @@ body {
 /* TITLE */
 header {
   width: 100%;
-  border-bottom: 1px solid rgb(58,58,60);
+  border-bottom: 1px solid rgb(58, 58, 60);
   padding-bottom: 0;
   margin-bottom: 10px;
 }
@@ -95,38 +96,78 @@ header {
 
 /* LETTER GLOW FOR FILLED TILES */
 .square:not(:empty):not(.glow-green):not(.glow-yellow):not(.glow-gray) {
-  box-shadow: 0 0 6px rgba(255,255,255,0.5);
-  background-color: rgba(255,255,255,0.03);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
 /* GLOW EFFECTS */
-.square.glow-green { box-shadow: 0 0 12px rgba(83, 141, 78, 0.7); }
-.square.glow-yellow { box-shadow: 0 0 12px rgba(181, 159, 59, 0.7); }
-.square.glow-gray { box-shadow: 0 0 12px rgba(58, 58, 60, 0.7); }
+.square.glow-green {
+  box-shadow: 0 0 12px rgba(83, 141, 78, 0.7);
+}
+.square.glow-yellow {
+  box-shadow: 0 0 12px rgba(181, 159, 59, 0.7);
+}
+.square.glow-gray {
+  box-shadow: 0 0 12px rgba(58, 58, 60, 0.7);
+}
 
 /* POP-IN NEW LETTERS */
 @keyframes popIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-.square.pop-in { animation: popIn 0.3s ease forwards; }
+.square.pop-in {
+  animation: popIn 0.3s ease forwards;
+}
 
 /* SHAKE ANIMATION */
 @keyframes shake {
-  0% { transform: translateX(0); }
-  10% { transform: translateX(-5px); }
-  20% { transform: translateX(5px); }
-  30% { transform: translateX(-5px); }
-  40% { transform: translateX(5px); }
-  50% { transform: translateX(-5px); }
-  60% { transform: translateX(5px); }
-  70% { transform: translateX(-5px); }
-  80% { transform: translateX(5px); }
-  90% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-5px);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  60% {
+    transform: translateX(5px);
+  }
+  70% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  90% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
-.shake { animation: shake 0.25s ease-in-out; }
+.shake {
+  animation: shake 0.25s ease-in-out;
+}
 
 /* KEYBOARD */
 #keyboard-container {
@@ -135,19 +176,20 @@ header {
   margin-top: 5px;
 }
 
+/* Make keys ALWAYS FIT on screen */
 .keyboard-row {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-bottom: 7px;
-  gap: 6px; /* Retain consistent gap */
+  gap: 6px;
+  flex-wrap: nowrap; /* prevents wrapping/cutting off */
 }
 
 .keyboard-row button {
-  /* Set a fixed, uniform width for letter keys across all rows */
-  width: 43px; 
-  flex: 0 0 auto; /* Ensure keys do not grow or shrink, maintaining fixed width */
-  height: 63px;
+  flex: 1 1 0;
+  max-width: 45px; /* ensures keys stay visible */
+  height: 60px;
   font-family: inherit;
   font-weight: bold;
   font-size: 1.2em;
@@ -157,24 +199,35 @@ header {
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
-  user-select: none;
   transition: background-color 0.2s, transform 0.1s;
+  user-select: none;
+  touch-action: manipulation;
 }
 
+/* Fix Enter + Delete keys */
+.keyboard-row button.wide-button {
+  flex: 1.7 !important; /* wider BUT not too wide */
+  max-width: none;
+}
+
+/* Press visual */
 .keyboard-row button:active,
 .keyboard-row button.pressed {
   transform: scale(0.95);
   background-color: rgb(163, 159, 159);
 }
 
-.keyboard-row button.wide-button { 
-  /* These keys need to override the fixed width to be wider */
-  width: auto;
-  flex: 1.2; /* Makes them 1.5 times the size of a regular key's share of space */
+/* Delete icon stays centered */
+button[data-key="del"] {
+  font-size: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button[data-key="del"] { font-size: 1.5em; display: flex; justify-content: center; align-items: center}
-button[data-key="enter"] { font-size: 0.9em; }
+button[data-key="enter"] {
+  font-size: 1em;
+}
 
 /* NOTIFICATIONS */
 #notification-container {
@@ -200,8 +253,25 @@ button[data-key="enter"] { font-size: 0.9em; }
   text-align: center;
 }
 @keyframes slideInOut {
-  0% { opacity: 0; transform: translateY(-20px); }
-  10% { opacity: 1; transform: translateY(0); }
-  90% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-20px); }
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
