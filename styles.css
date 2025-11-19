@@ -27,7 +27,7 @@ body {
   justify-content: center;
   padding: 20px 0;
   box-sizing: border-box;
-  transform: scale(0.8);
+  transform: scale(1);
   transform-origin: top center;
 }
 
