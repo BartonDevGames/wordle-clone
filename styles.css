@@ -23,12 +23,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
   justify-content: center;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   box-sizing: border-box;
-  transform: scale(1);
+  transform: scale(0.9);
   transform-origin: top center;
+  height: auto;
 }
 
 /* GAME BOARD */
@@ -64,6 +64,8 @@ header {
 }
 
 #board {
+  transform: scale(0.95);
+  transform-origin: center;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 6px;
@@ -173,7 +175,8 @@ header {
 #keyboard-container {
   width: 100%;
   max-width: 500px;
-  margin-top: 5px;
+  margin-top: 0px;
+  margin-bottom: -50px
 }
 
 /* Make keys ALWAYS FIT on screen */
