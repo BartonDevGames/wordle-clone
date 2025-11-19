@@ -177,7 +177,7 @@ header {
   width: 100%;
   max-width: 500px;
   margin-top: 0px;
-  margin-bottom: -50px
+  margin-bottom: -50px;
 }
 
 /* Make keys ALWAYS FIT on screen */
@@ -192,7 +192,7 @@ header {
 
 .keyboard-row button {
   flex: 1 1 0;
-  max-width: 45px; /* ensures keys stay visible */
+  max-width: 45px;
   height: 60px;
   font-family: inherit;
   font-weight: bold;
@@ -210,7 +210,7 @@ header {
 
 /* Fix Enter + Delete keys */
 .keyboard-row button.wide-button {
-  flex: 1.7 !important; /* wider BUT not too wide */
+  flex: 1.7 !important;
   max-width: none;
 }
 
@@ -278,4 +278,19 @@ button[data-key="enter"] {
 button:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+/* MOBILE FIX: Bigger Delete + Enter buttons */
+@media (max-width: 600px) {
+  button[data-key="del"] {
+    flex: 2 !important;
+    min-width: 65px !important;
+    font-size: 1.8em;
+  }
+
+  button[data-key="enter"] {
+    flex: 2 !important;
+    min-width: 65px !important;
+    font-size: 1.3em;
+  }
 }
