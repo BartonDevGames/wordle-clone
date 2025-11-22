@@ -32,7 +32,7 @@ body {
 
 /* GAME BOARD */
 #game {
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
@@ -242,7 +242,7 @@ button[data-key="enter"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 200px;
+  min-width: 400px;
 }
 .notification {
   background-color: rgb(100, 100, 100);
@@ -282,7 +282,7 @@ button:focus {
 @media (max-width: 600px) {
   button[data-key="del"] {
     flex: 2 !important;
-    min-width: 65px !important;
+    min-width: 100px !important;
     font-size: 3.8em;
   }
 }  
