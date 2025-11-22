@@ -19,7 +19,6 @@ body {
 
 /* MAIN CONTAINER */
 #container {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +32,7 @@ body {
 
 /* GAME BOARD */
 #game {
-  width: 100%;
+  width: 90%;
   max-width: 500px;
   display: flex;
   flex-direction: column;
