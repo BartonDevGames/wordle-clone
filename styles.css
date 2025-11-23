@@ -278,11 +278,12 @@ button:focus {
   box-shadow: none !important;
 }
 
-/* MOBILE FIX: Bigger Delete + Enter buttons */
 @media (max-width: 600px) {
+  button[data-key="enter"],
   button[data-key="del"] {
-    flex: 2 !important;
-    min-width: 100px !important;
-    font-size: 3.8em;
+    flex: 2 !important;          /* SAME size for both keys */
+    min-width: 110px !important; /* slightly wider than before */
+    font-size: 2.8em;            /* balanced size for mobile */
+    height: 70px;                /* optional: slightly taller */
   }
-}  
+}
