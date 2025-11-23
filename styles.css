@@ -279,10 +279,8 @@ button:focus {
 }
 
 @media (max-width: 600px) {
-  button[data-key="del"] {
-    font-size: 2.8em !important;  /* almost double */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  #keyboard-container button[data-key="del"] {
+    font-size: 3em !important;   /* almost double */
+    line-height: 1 !important;   /* prevents vertical clipping */
   }
 }
